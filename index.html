@@ -76,8 +76,8 @@ color: #000000;
 		<div class="col-md-3">
 		<img src="IMG_8223 (1).jpg" style="width:170px; height:190px; border-radius:60%;  margin-left:90px;">
 		</div>
-		<div class="col-md-8">
-              <h1 style="margin-left:60px;" onclick="myFunction()" id="demo">ARIHAFI Patrick</h1><p style="margin-top:-10px;margin-left:60px;"><i><h6 style="margin-left:60px;">Software Engineer</h6></i></p><i style="margin-left:60px;" class="fa-solid fa-envelope w3-xlarge"></i>  arihafipatrick@gmail.com
+		<div class="col-md-8" id="header">
+              <h1 style="margin-left:60px;" id="demo">ARIHAFI Patrick</h1><p style="margin-top:-10px;margin-left:60px;"><i><h6 style="margin-left:60px;">Software Engineer</h6></i></p><i style="margin-left:60px;" class="fa-solid fa-envelope w3-xlarge"></i>  arihafipatrick@gmail.com
     <i class="fa-solid fa-phone w3-xlarge"></i> 0789678631
     <i class="fa-solid fa-location-dot w3-xlarge"></i> Kigali,Rwanda
 		</div>
@@ -159,9 +159,22 @@ charge of managing Databases, Troubleshooting,
 </div>
 
 <script>
-function myFunction() {
-  document.getElementById("demo").style.color = "blue";
-}
+  window.onscroll = function() {myFunction()};
+        var header = document.getElementById("header");
+        var sticky = header.offsetTop;
+        let title = document.getElementById('demo');
+        let colors = ['#059', 'green', 'cyan', 'yellow', 'blue', '#000033', '#2f956d', '#605ea9'];
+        title.addEventListener('click', (e) => {
+            let current = Math.floor(Math.random( )* colors.length);
+            title.style.color = colors[current];
+        });
+        function myFunction() {
+          if (window.pageYOffset > sticky) {
+            header.classList.add("sticky");
+          } else {
+            header.classList.remove("sticky");
+          }
+        }
 </script>
 
 <script src="js/bootstrap.js"></script>
